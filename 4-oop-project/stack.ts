@@ -4,58 +4,44 @@ interface Stack {
   pop(): string;
 }
 
-type Head = {
-  index: number;
-  value: string;
-  head: Head;
+type StackNode = {
+  readonly value: string;
+  readonly next?: StackNode;
 };
 
 class StackImpl implements Stack {
-  size: number = 0;
-  private head: Head;
+  private _size: number = 0;
+  private head?: StackNode;
+
+  constructor(private capacity: number) {}
+  get size() {
+    return this._size;
+  }
   push(value: string): void {
-    let obj = {
-      index: this.size++,
-      value,
-      head: this.head,
-    };
-    this.setHead(obj);
+    if (this.size === this.capacity) {
+      throw new Error("Stack is full");
+    }
+    this._size++;
+    const node: StackNode = { value, next: this.head };
+    this.head = node;
   }
   pop(): string {
-    let value = "";
-    console.log(`this.size = ${this.size}`);
-    if (this.size--) {
-      value = this.head.value;
-      this.head = this.head.head;
-    } else {
-      value = "no element";
+    if (this.head == null) {
+      throw new Error("Stack is empty");
     }
-    return value;
-  }
-  private setHead(head?: Head) {
-    this.head = head ? head : this.head.head;
+    const node = this.head;
+    this.head = node.next;
+    this._size--;
+    return node.value;
   }
 }
 
-const stack = new StackImpl();
-stack.push("1");
-stack.push("2");
-stack.push("3");
-stack.push("4");
-stack.push("5");
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
-stack.push("1");
-stack.push("2");
-stack.push("3");
-stack.push("4");
-stack.push("5");
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
+const stack = new StackImpl(3);
+stack.push("Ellie 1");
+stack.push("Bob 2");
+stack.push("Steve 3");
+while (stack.size !== 0) {
+  console.log(stack.pop());
+}
+
 console.log(stack.pop());

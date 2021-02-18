@@ -54,7 +54,7 @@
 
   console.log(coffeeMachine.makeCoffee(2));
 
-  // to use get, athough it's function, have to access like variable
+  // to use get, although it's function, have to access like variable
   class User {
     // private firstName;
     // private lastName;
@@ -68,10 +68,8 @@
     get fullName(): string {
       return `${this.firstName} ${this.lastName}`;
     }
-    constructor(private firstName: string, private lastName: string) {
-      this.firstName = firstName;
-      this.lastName = lastName;
-    }
+    // equals with this.firstName = firstName ...
+    constructor(private firstName: string, private lastName: string) {}
   }
 
   const user = new User("Steve", "Jobs");
