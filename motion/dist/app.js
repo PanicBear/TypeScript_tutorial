@@ -1,12 +1,9 @@
-"use strict";
-class PageComponent {
-    constructor() { }
-    addSection(input, target) {
-        const DIV = document.createElement("div");
-        DIV.append(input);
-        target.appendChild(DIV);
+import { PageComponent } from "./components/page.js";
+class App {
+    constructor(appRoot) {
+        this.page = new PageComponent();
+        this.page.attachTo(appRoot);
     }
 }
-let section = new PageComponent();
-section.addSection("This is PageCompnent", document.querySelector(".components"));
+new App(document.querySelector(".document"));
 //# sourceMappingURL=app.js.map
