@@ -8,13 +8,13 @@ class App {
         this.page = new PageComponent();
         this.page.attachTo(appRoot);
         const image = new ImageComponent("Image Title", "https://picsum.photos/600/300");
-        image.attachTo(appRoot, "beforeend");
-        const video = new VideoComponent("YouTube video player", "https://www.youtube.com/embed/N2jgVT9chaQ");
-        video.attachTo(appRoot, "beforeend");
+        const video = new VideoComponent("YouTube video player", "https://www.youtube.com/watch?v=N2jgVT9chaQ&t=9s&ab_channel=%ED%95%98%ED%83%80");
         const note = new NoteComponent("Note Title", "Note Body");
-        note.attachTo(appRoot, "beforeend");
         const todo = new TodoComponent("Todo Title", "Todo Item");
-        todo.attachTo(appRoot, "beforeend");
+        this.page.addChild(image);
+        this.page.addChild(video);
+        this.page.addChild(note);
+        this.page.addChild(todo);
     }
 }
 new App(document.querySelector(".document"));
