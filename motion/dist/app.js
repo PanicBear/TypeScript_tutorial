@@ -19,6 +19,43 @@ class App {
         const imageBtn = document.querySelector("#new-image");
         imageBtn.addEventListener("click", () => {
             const dialog = new InputDialog();
+            dialog.setLabel("URL");
+            dialog.setOncloseListener(() => {
+                dialog.removeFrom(document.body);
+            });
+            dialog.setOnSubmitListener(() => {
+                dialog.removeFrom(document.body);
+            });
+            dialog.attachTo(document.body);
+        });
+        const videoBtn = document.querySelector("#new-video");
+        videoBtn.addEventListener("click", () => {
+            const dialog = new InputDialog();
+            dialog.setLabel("URL");
+            dialog.setOncloseListener(() => {
+                dialog.removeFrom(document.body);
+            });
+            dialog.setOnSubmitListener(() => {
+                dialog.removeFrom(document.body);
+            });
+            dialog.attachTo(document.body);
+        });
+        const noteBtn = document.querySelector("#new-note");
+        noteBtn.addEventListener("click", () => {
+            const dialog = new InputDialog();
+            dialog.setLabel("Body");
+            dialog.setOncloseListener(() => {
+                dialog.removeFrom(document.body);
+            });
+            dialog.setOnSubmitListener(() => {
+                dialog.removeFrom(document.body);
+            });
+            dialog.attachTo(document.body);
+        });
+        const todoBtn = document.querySelector("#new-todo");
+        todoBtn.addEventListener("click", () => {
+            const dialog = new InputDialog();
+            dialog.setLabel("Body");
             dialog.setOncloseListener(() => {
                 dialog.removeFrom(document.body);
             });

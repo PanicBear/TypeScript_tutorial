@@ -39,6 +39,52 @@ class App {
     const imageBtn = document.querySelector("#new-image")! as HTMLButtonElement;
     imageBtn.addEventListener("click", () => {
       const dialog = new InputDialog();
+      dialog.setLabel("URL");
+      dialog.setOncloseListener(() => {
+        dialog.removeFrom(document.body);
+      });
+      dialog.setOnSubmitListener(() => {
+        // TODO
+        // add section to page
+        dialog.removeFrom(document.body);
+      });
+      dialog.attachTo(document.body);
+    });
+
+    const videoBtn = document.querySelector("#new-video")! as HTMLButtonElement;
+    videoBtn.addEventListener("click", () => {
+      const dialog = new InputDialog();
+      dialog.setLabel("URL");
+      dialog.setOncloseListener(() => {
+        dialog.removeFrom(document.body);
+      });
+      dialog.setOnSubmitListener(() => {
+        // TODO
+        // add section to page
+        dialog.removeFrom(document.body);
+      });
+      dialog.attachTo(document.body);
+    });
+
+    const noteBtn = document.querySelector("#new-note")! as HTMLButtonElement;
+    noteBtn.addEventListener("click", () => {
+      const dialog = new InputDialog();
+      dialog.setLabel("Body");
+      dialog.setOncloseListener(() => {
+        dialog.removeFrom(document.body);
+      });
+      dialog.setOnSubmitListener(() => {
+        // TODO
+        // add section to page
+        dialog.removeFrom(document.body);
+      });
+      dialog.attachTo(document.body);
+    });
+
+    const todoBtn = document.querySelector("#new-todo")! as HTMLButtonElement;
+    todoBtn.addEventListener("click", () => {
+      const dialog = new InputDialog();
+      dialog.setLabel("Body");
       dialog.setOncloseListener(() => {
         dialog.removeFrom(document.body);
       });
