@@ -12,7 +12,7 @@ interface SectionContainer extends Component, Composable {
 
 // SectionContainer를 구현하는 모든 클래스 허용
 type SectionContainerConstructor = {
-  new (): SectionContainer; // 생성자 정의 : 생성자 호출 시 해당 타입을 생성하는 어떤 클래스라도 허용
+  new (): SectionContainer; // 생성자 타입 : 생성자 호출 시 해당 타입을 생성하는 어떤 클래스라도 허용
 };
 
 export class PageItemComponent
