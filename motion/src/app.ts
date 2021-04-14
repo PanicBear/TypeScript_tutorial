@@ -18,24 +18,6 @@ class App {
     this.page = new PageComponent(PageItemComponent); // 전달된 아이템을 생성시켜, 확장성을 높인다
     this.page.attachTo(appRoot);
 
-    const image = new ImageComponent(
-      "Image Title",
-      "https://picsum.photos/600/300"
-    );
-    this.page.addChild(image);
-
-    const video = new VideoComponent(
-      "YouTube video player",
-      "https://www.youtube.com/watch?v=N2jgVT9chaQ&t=9s&ab_channel=%ED%95%98%ED%83%80"
-    );
-    this.page.addChild(video);
-
-    const note = new NoteComponent("Note Title", "Note Body");
-    this.page.addChild(note);
-
-    const todo = new TodoComponent("Todo Title", "Todo Item");
-    this.page.addChild(todo);
-
     const imageBtn = document.querySelector("#new-image")! as HTMLButtonElement;
     imageBtn.addEventListener("click", () => {
       const dialog = new InputDialog();
@@ -44,8 +26,14 @@ class App {
         dialog.removeFrom(document.body);
       });
       dialog.setOnSubmitListener(() => {
-        // TODO
-        // add section to page
+        const inputTitle = document.querySelector(
+          ".body--title__input"
+        ) as HTMLInputElement;
+        const inputValue = document.querySelector(
+          ".body--value__input"
+        ) as HTMLInputElement;
+        const image = new ImageComponent(inputTitle.value!, inputValue.value!);
+        this.page.addChild(image);
         dialog.removeFrom(document.body);
       });
       dialog.attachTo(document.body);
@@ -59,8 +47,14 @@ class App {
         dialog.removeFrom(document.body);
       });
       dialog.setOnSubmitListener(() => {
-        // TODO
-        // add section to page
+        const inputTitle = document.querySelector(
+          ".body--title__input"
+        ) as HTMLInputElement;
+        const inputValue = document.querySelector(
+          ".body--value__input"
+        ) as HTMLInputElement;
+        const video = new VideoComponent(inputTitle.value!, inputValue.value!);
+        this.page.addChild(video);
         dialog.removeFrom(document.body);
       });
       dialog.attachTo(document.body);
@@ -74,8 +68,14 @@ class App {
         dialog.removeFrom(document.body);
       });
       dialog.setOnSubmitListener(() => {
-        // TODO
-        // add section to page
+        const inputTitle = document.querySelector(
+          ".body--title__input"
+        ) as HTMLInputElement;
+        const inputValue = document.querySelector(
+          ".body--value__input"
+        ) as HTMLInputElement;
+        const note = new NoteComponent(inputTitle.value!, inputValue.value!);
+        this.page.addChild(note);
         dialog.removeFrom(document.body);
       });
       dialog.attachTo(document.body);
@@ -89,8 +89,14 @@ class App {
         dialog.removeFrom(document.body);
       });
       dialog.setOnSubmitListener(() => {
-        // TODO
-        // add section to page
+        const inputTitle = document.querySelector(
+          ".body--title__input"
+        ) as HTMLInputElement;
+        const inputValue = document.querySelector(
+          ".body--value__input"
+        ) as HTMLInputElement;
+        const todo = new TodoComponent(inputTitle.value!, inputValue.value!);
+        this.page.addChild(todo);
         dialog.removeFrom(document.body);
       });
       dialog.attachTo(document.body);

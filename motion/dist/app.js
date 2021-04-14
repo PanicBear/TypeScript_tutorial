@@ -8,14 +8,6 @@ class App {
     constructor(appRoot) {
         this.page = new PageComponent(PageItemComponent);
         this.page.attachTo(appRoot);
-        const image = new ImageComponent("Image Title", "https://picsum.photos/600/300");
-        this.page.addChild(image);
-        const video = new VideoComponent("YouTube video player", "https://www.youtube.com/watch?v=N2jgVT9chaQ&t=9s&ab_channel=%ED%95%98%ED%83%80");
-        this.page.addChild(video);
-        const note = new NoteComponent("Note Title", "Note Body");
-        this.page.addChild(note);
-        const todo = new TodoComponent("Todo Title", "Todo Item");
-        this.page.addChild(todo);
         const imageBtn = document.querySelector("#new-image");
         imageBtn.addEventListener("click", () => {
             const dialog = new InputDialog();
@@ -24,6 +16,10 @@ class App {
                 dialog.removeFrom(document.body);
             });
             dialog.setOnSubmitListener(() => {
+                const inputTitle = document.querySelector(".body--title__input");
+                const inputValue = document.querySelector(".body--value__input");
+                const image = new ImageComponent(inputTitle.value, inputValue.value);
+                this.page.addChild(image);
                 dialog.removeFrom(document.body);
             });
             dialog.attachTo(document.body);
@@ -36,6 +32,10 @@ class App {
                 dialog.removeFrom(document.body);
             });
             dialog.setOnSubmitListener(() => {
+                const inputTitle = document.querySelector(".body--title__input");
+                const inputValue = document.querySelector(".body--value__input");
+                const video = new VideoComponent(inputTitle.value, inputValue.value);
+                this.page.addChild(video);
                 dialog.removeFrom(document.body);
             });
             dialog.attachTo(document.body);
@@ -48,6 +48,10 @@ class App {
                 dialog.removeFrom(document.body);
             });
             dialog.setOnSubmitListener(() => {
+                const inputTitle = document.querySelector(".body--title__input");
+                const inputValue = document.querySelector(".body--value__input");
+                const note = new NoteComponent(inputTitle.value, inputValue.value);
+                this.page.addChild(note);
                 dialog.removeFrom(document.body);
             });
             dialog.attachTo(document.body);
@@ -60,6 +64,10 @@ class App {
                 dialog.removeFrom(document.body);
             });
             dialog.setOnSubmitListener(() => {
+                const inputTitle = document.querySelector(".body--title__input");
+                const inputValue = document.querySelector(".body--value__input");
+                const todo = new TodoComponent(inputTitle.value, inputValue.value);
+                this.page.addChild(todo);
                 dialog.removeFrom(document.body);
             });
             dialog.attachTo(document.body);
