@@ -17,7 +17,8 @@ type SectionContainerConstructor = {
 
 export class PageItemComponent
   extends BaseComponent<HTMLElement>
-  implements SectionContainer {
+  implements SectionContainer
+{
   private closeListener?: OnCloseListener;
   constructor() {
     super(`<li class="page-item">
@@ -45,7 +46,8 @@ export class PageItemComponent
 
 export class PageComponent
   extends BaseComponent<HTMLUListElement>
-  implements Composable {
+  implements Composable
+{
   constructor(private pageItemConstructor: SectionContainerConstructor) {
     super('<ul class="page"></ul>');
   }
