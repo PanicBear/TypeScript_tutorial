@@ -7,7 +7,11 @@
   --border-color: #3f3f3f;
   --shadow-color: #202020;
   --document-bg-color: #68686850;
-  --component-bg-gradient: radial-gradient(circle, #646464e6 0%, #363636e6 100%);
+  --component-bg-gradient: radial-gradient(
+    circle,
+    #646464e6 0%,
+    #363636e6 100%
+  );
   --smokywhite: #dddbd8;
   --black: #000000;
   --translucent-black: #00000099;
@@ -49,7 +53,7 @@ textarea {
 }
 
 body {
-  background: url('../assets/background.png') center/cover no-repeat;
+  background: url("../assets/background.png") center/cover no-repeat;
   font-family: Roboto, Oxygen, sans-serif;
   display: flex;
   justify-content: center;
@@ -247,4 +251,29 @@ body {
 .todo-label {
   padding: 1em;
   color: var(--smokywhite);
+}
+
+/* DND */
+/* 하위 엘리먼트를 모두 선택 */
+/* 바람직한 방법은 아님 */
+.mute-children * {
+  pointer-events: none;
+}
+
+.lifted {
+  animation: drag_start 250ms;
+  opacity: 0.2;
+}
+
+@keyframes drag_start {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.drop-area {
+  border: 2px solid var(--accent-color);
 }
