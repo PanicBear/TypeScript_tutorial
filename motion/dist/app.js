@@ -1,7 +1,6 @@
 import { InputDialog, } from "./components/dialog/dialog.js";
 import { MediaSectionInput } from "./components/dialog/input/media-input.js";
 import { TextSectionInput } from "./components/dialog/input/text-input.js";
-import DndHandler from "./components/page/handler/dndHandler.js";
 import { ImageComponent } from "./components/page/item/image.js";
 import { NoteComponent } from "./components/page/item/note.js";
 import { TodoComponent } from "./components/page/item/todo.js";
@@ -36,5 +35,4 @@ class App {
     }
 }
 new App(document.querySelector(".document"), document.body);
-new DndHandler();
 //# sourceMappingURL=app.js.map

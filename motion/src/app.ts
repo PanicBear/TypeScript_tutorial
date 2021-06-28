@@ -8,7 +8,6 @@ import {
 } from "./components/dialog/dialog.js";
 import { MediaSectionInput } from "./components/dialog/input/media-input.js";
 import { TextSectionInput } from "./components/dialog/input/text-input.js";
-import DndHandler from "./components/page/handler/dndHandler.js";
 import { ImageComponent } from "./components/page/item/image.js";
 import { NoteComponent } from "./components/page/item/note.js";
 import { TodoComponent } from "./components/page/item/todo.js";
@@ -76,7 +75,7 @@ class App {
 }
 
 new App(document.querySelector(".document") as HTMLElement, document.body); // 동적으로 입력되는 값이 아닌, 개발 시 지정된 값일 경우에만 타입 assertion 사용
-new DndHandler();
+
 
 /* T extends A | B 는 정확하게 특정 타입을 명시하기 때문에 T는 A 또는 B 타입만 될 수 있어요. 그리고 A와 B는 모두 동일한 인터페이스를 구현하고 있다면 T 타입은 그 인터페이스를 가지고 있다고 확정할 수 있죠
 
